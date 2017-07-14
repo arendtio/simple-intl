@@ -1,0 +1,6 @@
+{
+	"HELLO_WORLD_KEY": "Hallo Welt.",
+	"PLURAL_DEMO": "{num, plural, =0 {Keine Demo} =1 {Eine Demo} other {# Demos}}",
+	"JUST_MY_2_CENTS": "Nur meine {cents, number, USD}"
+}
+

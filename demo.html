@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Simple-Intl.js Demo</title>
+	</head>
+	<body>
+		<div id="demo"></div>
+
+		<!-- Polyfill for https://tc39.github.io/ecma402/ -->
+		<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en,Intl.~locale.de"></script>
+
+		<script src="node_modules/intl-messageformat/dist/intl-messageformat.min.js"></script>
+		<script src="node_modules/intl-relativeformat/dist/intl-relativeformat.min.js"></script>
+		<script src="dist/simple-intl.min.js"></script>
+		<script>
+// what we need is a list of all languages for which translations files
+// for this page/app exist. In this demo case it is 'en' and 'de'
+var available = ["en", "de"];
+
+// simpleintl detects automatically the best language from the browser settings.
+// If it does not find a match it uses the first entry as fallback
+document.getElementById("demo").innerText += "Detected: "+simpleintl.detectLanguage(available)+"\n"
+
+var options = {
+	localeDataPath: "node_modules/intl-messageformat/dist/locale-data",
+	relativeLocaleDataPath: "node_modules/intl-relativeformat/dist/locale-data",
+	messagesPath: "i18n",
+}
+
+// i18n should be used by convention
+var i18n = simpleintl(available, options, function() {
+	// this callback is triggered when i18n is ready to be used
+	// the following examples show how the i18n function can be used
+
+	// the format used for the translations can be found here:
+	// https://formatjs.io/guides/message-syntax/
+
+	// simple text
+	var sText = i18n("HELLO_WORLD_KEY");
+
+	// plural
+	var sPlural0 = i18n("PLURAL_DEMO", {num: 0});
+	var sPlural1 = i18n("PLURAL_DEMO", {num: 1});
+	var sPlural2 = i18n("PLURAL_DEMO", {num: 2});
+
+	// dates
+	var sDate = i18n.date(Date.now());
+
+	// relative dates
+	var sToday = i18n.relative(Date.now(), {
+		units: 'day'
+	});
+	var sYesterday = i18n.relative(Date.now()-24*60*60*1000);
+
+	// numbers and currency
+	var sNumber = i18n.number(1234.56);
+	var sCash = i18n.number(1.99, {
+		style   : "currency",
+		currency: "EUR"
+	});
+
+	// currency within a translation key
+	var sMixed = i18n("JUST_MY_2_CENTS", {
+		cents: 0.02
+	}, {
+		number: {
+			USD: {
+				style: "currency",
+				currency: "USD"
+			}
+		}
+	});
+
+	document.getElementById("demo").innerText += i18n.activeLanguage()+":\n"
+		+sText+"\n"
+		+sPlural0+"\n"
+		+sPlural1+"\n"
+		+sPlural2+"\n"
+		+sDate+"\n"
+		+sToday+"\n"
+		+sYesterday+"\n"
+		+sNumber+"\n"
+		+sCash+"\n"
+		+sMixed+"\n\n";
+
+	// manually creating an instance
+	var otherLang="de"
+	if(i18n.activeLanguage() == "de"){
+		otherLang="en"
+	}
+	l10n = simpleintl.createInstance();
+	l10n.patchOptions(options);
+	l10n.loadLanguage(otherLang, function() {
+		// 2nd instance l10n
+		document.getElementById("demo").innerText += l10n.activeLanguage()+": "
+			+l10n.date(Date.now())+"\n"
+		// vs. 1st instance i18n
+		document.getElementById("demo").innerText += i18n.activeLanguage()+": "
+			+i18n.date(Date.now())+"\n"
+	});
+});
+		</script>
+	</body>
+</html>
+
