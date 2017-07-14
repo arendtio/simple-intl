@@ -1,11 +1,11 @@
 {
   "name": "simple-intl",
-  "version": "0.0.0",
+  "version": "0.9.0",
   "description": "Simple i18n library based on the powerful formatjs.io",
   "main": "src/main.js",
   "scripts": {
     "build": "rollup -c",
-	"start": "./node_modules/http-server/bin/http-server -a localhost -p 8080",
+    "start": "./node_modules/http-server/bin/http-server -a localhost -p 8080",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "rollup -c -w"
   },
