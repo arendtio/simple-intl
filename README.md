@@ -167,9 +167,9 @@ the following options:
 
 ```json
 {
-	localeDataPath: "js/intl-messageformat/locale-data",
-	relativeLocaleDataPath: "js/intl-relativeformat/locale-data",
-	messagesPath: "i18n"
+	"localeDataPath": "js/intl-messageformat/locale-data",
+	"relativeLocaleDataPath": "js/intl-relativeformat/locale-data",
+	"messagesPath": "i18n"
 }
 ```
 
