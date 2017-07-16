@@ -1,7 +1,7 @@
 # Simple-Intl
 
 Simple i18n library based on the powerful
-[formatjs.io](formatjs.io).
+[formatjs.io](https://formatjs.io).
 
 Internationalization (i18n) is hard. In the beginning, we often
 think 'Hey, let's take all our texts into a dictionary and use
@@ -124,7 +124,7 @@ Last but not least, simple-intl will take a moment to
 initialize the instance and takes a **callback** function which is being
 called when the returned function is ready to be used:
 
-```
+```javascript
 var available = ["en", "de"];
 
 var options = {

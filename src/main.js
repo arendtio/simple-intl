@@ -28,7 +28,7 @@ function createInstance(options) {
 
 	var localeDataPath;
 	var relativeLocaleDataPath;
-	var messagesPathi;
+	var messagesPath;
 	var default_options = {
 		localeDataPath: "js/intl-messageformat/locale-data",
 		relativeLocaleDataPath: "js/intl-relativeformat/locale-data",
