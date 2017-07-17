@@ -5,7 +5,13 @@ import IntlRelativeFormat from 'intl-relativeformat';
 
 import detectLocale from './detect.js'
 import loadLocale from './load.js'
-import { version } from '../package.json';
+
+// add IntlMessageFromat and IntlRelativeFormat as globals
+// because the locale-data use those variables
+if(typeof window != "undefined" && window.IntlMessageFormat === undefined && window.IntlRelativeFormat === undefined) {
+	window.IntlMessageFormat = IntlMessageFormat
+	window.IntlRelativeFormat = IntlRelativeFormat
+}
 
 // Constructor
 function simpleIntl(availableLanguages, options, readyCallback) {
