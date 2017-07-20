@@ -1,6 +1,6 @@
 {
   "name": "simple-intl",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "description": "Simple i18n library based on the powerful formatjs.io",
   "main": "src/main.js",
   "scripts": {
