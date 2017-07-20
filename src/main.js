@@ -3,6 +3,7 @@ import createFormatCache from 'intl-format-cache';
 import IntlMessageFormat from 'intl-messageformat';
 import IntlRelativeFormat from 'intl-relativeformat';
 
+import browserLangs from './browser-langs.js'
 import detectLocale from './detect.js'
 import loadLocale from './load.js'
 
@@ -130,5 +131,6 @@ function createInstance(options) {
 // static methods
 simpleIntl.createInstance = createInstance;
 simpleIntl.detectLanguage = detectLocale;
+simpleIntl.browserLanguages = browserLangs;
 
 export default simpleIntl

@@ -197,6 +197,11 @@ let the user select a language without having to change the browser
 settings. The function returns the first matching locale. If it does
 not match any availableLocale, it returns the fallbackLocale.
 
+- `simpleintl.browserLanguages()`: Returns an Array with the
+preferred languages according to the browser settings in descending
+order. The localStorage key mentioned in `detectLanguage` is
+included here too (if it exists).
+
 ## Instance Methods (i18n)
 
 The instance methods can be split into 2 groups:

@@ -21,6 +21,7 @@ var available = ["en", "de"];
 // simpleintl detects automatically the best language from the browser settings.
 // If it does not find a match it uses the first entry as fallback
 document.getElementById("demo").innerText += "Detected: "+simpleintl.detectLanguage(available)+"\n"
+document.getElementById("demo").innerText += "Browser-Settings: "+simpleintl.browserLanguages()+"\n"
 
 var options = {
 	localeDataPath: "node_modules/intl-messageformat/dist/locale-data",
