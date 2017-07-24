@@ -2,7 +2,8 @@
   "name": "simple-intl",
   "version": "0.9.3",
   "description": "Simple i18n library based on the powerful formatjs.io",
-  "main": "src/main.js",
+  "main": "dist/simple-intl.min.js",
+  "module": "src/main.js",
   "scripts": {
     "build": "rollup -c",
     "start": "./node_modules/http-server/bin/http-server -a localhost -p 8080",
