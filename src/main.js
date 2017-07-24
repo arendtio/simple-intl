@@ -73,6 +73,12 @@ function createInstance(options) {
 		}
 	}
 
+	i18n.setLanguage = function(locale, data) {
+		// TODO: load locale-data?
+		activeLocale = locale
+		messages[activeLocale]=data
+	}
+
 	i18n.loadLanguage = function(locale, callback) {
 		//setLocale
 		activeLocale = locale

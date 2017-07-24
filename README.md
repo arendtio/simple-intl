@@ -250,6 +250,12 @@ changed.
 `callback` is called as soon as all files have been fetched and
 loaded.
 
+- `i18n.setLanguage(locale, data)`: Sets the `locale` as
+`activeLanuage` and data as the dictionay for the provided locale.
+This method is an alternative to `i18n.loadLanguage` and can be used
+when the dictionary data should not be loaded from a json file (e.g.
+in a node.js app).
+
 - `i18n.activeLanguage([forceShort])`: Returns the currently
 active/loaded Language. If `forceShort` is set it only returns the
 first 2 characters of the active Locale.
